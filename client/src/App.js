@@ -1,6 +1,7 @@
 import React from "react";
-import HomePage from "./HomePage";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import HomePage from "./HomePage";
+import ProfilePage from "./ProfilePage.js";
 
 function App() {
     const navigate = useNavigate();
@@ -9,12 +10,10 @@ function App() {
         <div>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-
-                {/* Example for routing to say, localhost:3000/about */}
-                {/* <Route
-                    path="/pages"
-                    element={<AboutPage navigate={navigate} />}
-                /> */}
+                <Route
+                    path="/profile"
+                    element={<ProfilePage navigate={navigate} />}
+                />
             </Routes>
         </div>
     );
