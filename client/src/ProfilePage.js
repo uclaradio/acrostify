@@ -11,6 +11,8 @@ class ProfilePage extends React.Component {
             authenticated: false,
             displayName: "",
             topArtists: [],
+            topGenres: new Set(),
+            topTracks: []
         };
     }
 
@@ -29,21 +31,44 @@ class ProfilePage extends React.Component {
 
         this.state.spotify
             .getMyTopArtists({
-                limit: 10,
+                limit: 50,
             })
             .then(
                 (artistsData) => {
                     let artists = [];
-                    artistsData.items.forEach((artist) =>
-                        artists.push(artist.name)
-                    );
+                    let genres = new Set();
+                    artistsData.items.forEach((artist) => {
+                        // console.log(artist);
+                        artists.push(artist.name);
+
+                        let artistGenres = artist.genres;
+                        artistGenres.forEach(genre => genres.add(genre))
+                    });
 
                     this.setState({
                         topArtists: artists,
-                        authenticated: true,
+                        topGenres: genres,
                     });
                 },
                 (error) => console.log("Error loading top artists: ", error)
+            );
+
+        this.state.spotify
+            .getMyTopTracks()
+            .then(
+                (tracksData) => {
+                    let tracks = [];
+                    tracksData.items.forEach((track) => {
+                        // console.log(track);
+                        tracks.push(track.name);
+                    });
+
+                    this.setState({
+                        topTracks: tracks,
+                        authenticated: true
+                    });
+                },
+                (error) => console.log("Error loading top tracks: ", error)
             );
     }
 
@@ -54,6 +79,8 @@ class ProfilePage extends React.Component {
 
         // Log out by navigating back to the home page
         const logout = () => this.props.navigate("/");
+
+        console.log(this.state.topGenres)
 
         return (
             <div className="profile">
@@ -78,7 +105,7 @@ class ProfilePage extends React.Component {
                     </tbody>
                 </table>
 
-                <br />
+                <br/>
 
                 <button onClick={logout}>Logout</button>
             </div>
