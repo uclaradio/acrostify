@@ -9,10 +9,11 @@ class ProfilePage extends React.Component {
         this.state = {
             spotify: new SpotifyWebApi(),
             authenticated: false,
-            displayName: "",
+            spotifyName: "",
             topArtists: [],
             topGenres: new Set(),
-            topTracks: []
+            topTracks: [],
+            name: ""
         };
     }
 
@@ -25,7 +26,7 @@ class ProfilePage extends React.Component {
         // https://github.com/thelinmichael/spotify-web-api-node
 
         this.state.spotify.getMe().then(
-            (me) => this.setState({ displayName: me.display_name }),
+            (me) => this.setState({ spotifyName: me.display_name }),
             (error) => console.log("Error loading profile data: ", error)
         );
 
@@ -38,12 +39,14 @@ class ProfilePage extends React.Component {
                     let artists = [];
                     let genres = new Set();
                     artistsData.items.forEach((artist) => {
-                        // console.log(artist);
                         artists.push(artist.name);
 
                         let artistGenres = artist.genres;
                         artistGenres.forEach(genre => genres.add(genre))
                     });
+
+                    console.log(artists);
+                    console.log(genres);
 
                     this.setState({
                         topArtists: artists,
@@ -59,9 +62,10 @@ class ProfilePage extends React.Component {
                 (tracksData) => {
                     let tracks = [];
                     tracksData.items.forEach((track) => {
-                        // console.log(track);
                         tracks.push(track.name);
                     });
+
+                    console.log(tracks);
 
                     this.setState({
                         topTracks: tracks,
@@ -70,6 +74,16 @@ class ProfilePage extends React.Component {
                 },
                 (error) => console.log("Error loading top tracks: ", error)
             );
+    }
+
+    handleChange(event) {
+        this.setState({
+            name: event.target.value
+        });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
     }
 
     render() {
@@ -83,27 +97,35 @@ class ProfilePage extends React.Component {
         console.log(this.state.topGenres)
 
         return (
-            <div className="profile">
-                <h3>Logged in as {this.state.displayName}</h3>
+            <div className="name">
+                <h3>Logged in as {this.state.spotifyName}</h3>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Position</th>
-                            <th>Artist</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.topArtists.map((artist, idx) => {
-                            return (
-                                <tr key={artist}>
-                                    <td>{idx + 1}</td>
-                                    <td>{artist}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                {/*<table>*/}
+                {/*    <thead>*/}
+                {/*        <tr>*/}
+                {/*            <th>Position</th>*/}
+                {/*            <th>Artist</th>*/}
+                {/*        </tr>*/}
+                {/*    </thead>*/}
+                {/*    <tbody>*/}
+                {/*        {this.state.topArtists.map((artist, idx) => {*/}
+                {/*            return (*/}
+                {/*                <tr key={artist}>*/}
+                {/*                    <td>{idx + 1}</td>*/}
+                {/*                    <td>{artist}</td>*/}
+                {/*                </tr>*/}
+                {/*            );*/}
+                {/*        })}*/}
+                {/*    </tbody>*/}
+                {/*</table>*/}
+
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        Name:
+                        <input type="text" value={this.state.value} onChange={event => event.preventDefault()} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
 
                 <br/>
 
