@@ -82,10 +82,6 @@ class ProfilePage extends React.Component {
         });
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-    }
-
     render() {
         // If the user isn't fully authenticated, don't render anything yet
         // This shouldn't be the case for longer than a fraction of a second
@@ -119,10 +115,10 @@ class ProfilePage extends React.Component {
                 {/*    </tbody>*/}
                 {/*</table>*/}
 
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={event => event.preventDefault()}>
                     <label>
                         Name:
-                        <input type="text" value={this.state.value} onChange={event => event.preventDefault()} />
+                        <input type="text" value={this.state.value} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
