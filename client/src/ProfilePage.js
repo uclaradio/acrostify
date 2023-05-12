@@ -2,6 +2,7 @@ import "./ProfilePage.css";
 import React from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import { getToken } from "./spotify.js";
+import DisplayPage from "./DisplayPage.js"
 
 class ProfilePage extends React.Component {
     constructor(props) {
@@ -13,7 +14,8 @@ class ProfilePage extends React.Component {
             topArtists: [],
             topGenres: new Set(),
             topTracks: [],
-            name: ""
+            name: "",
+            submittedName: false
         };
     }
 
@@ -76,12 +78,6 @@ class ProfilePage extends React.Component {
             );
     }
 
-    handleChange(event) {
-        this.setState({
-            name: event.target.value
-        });
-    }
-
     render() {
         // If the user isn't fully authenticated, don't render anything yet
         // This shouldn't be the case for longer than a fraction of a second
@@ -91,6 +87,10 @@ class ProfilePage extends React.Component {
         const logout = () => this.props.navigate("/");
 
         console.log(this.state.topGenres)
+
+        if (this.state.submittedName)
+            return <DisplayPage name={this.state.name} topArtists={this.state.topArtists}
+                                topTracks={this.state.topTracks} topGenres={this.state.topGenres}/>
 
         return (
             <div className="name">
@@ -115,12 +115,16 @@ class ProfilePage extends React.Component {
                 {/*    </tbody>*/}
                 {/*</table>*/}
 
-                <form onSubmit={event => event.preventDefault()}>
+                <form onSubmit={event => {
+                    event.preventDefault();
+                    this.setState({ submittedName: true });
+                }}>
                     <label>
                         Name:
-                        <input type="text" value={this.state.value} onChange={this.handleChange} />
+                        <input type="text" value={this.state.value}
+                               onChange={event => this.setState({ name: event.target.value })}/>
                     </label>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Submit"/>
                 </form>
 
                 <br/>
