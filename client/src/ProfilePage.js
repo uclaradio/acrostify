@@ -47,8 +47,8 @@ class ProfilePage extends React.Component {
                         artistGenres.forEach(genre => genres.add(genre))
                     });
 
-                    console.log(artists);
-                    console.log(genres);
+                    // console.log(artists);
+                    // console.log(genres);
 
                     this.setState({
                         topArtists: artists,
@@ -67,7 +67,7 @@ class ProfilePage extends React.Component {
                         tracks.push(track.name);
                     });
 
-                    console.log(tracks);
+                    // console.log(tracks);
 
                     this.setState({
                         topTracks: tracks,
@@ -86,7 +86,7 @@ class ProfilePage extends React.Component {
         // Log out by navigating back to the home page
         const logout = () => this.props.navigate("/");
 
-        console.log(this.state.topGenres)
+        // console.log(this.state.topGenres)
 
         if (this.state.submittedName)
             return <DisplayPage name={this.state.name} topArtists={this.state.topArtists}
