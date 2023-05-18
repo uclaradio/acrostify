@@ -33,16 +33,25 @@ class DisplayPage extends React.Component {
 
     render() {
         let acrostic = this.acrostify();
-
+    
         console.log(acrostic);
-
+    
         return (
             <div>
-                {this.props.name}
-                {acrostic.map((line, i) => <div key={i}>{line}</div>)}
+                {this.props.name.split('').map((letter, i) => 
+                    <div key={i}>
+                        <span className="letter" style={{'--i': i, fontSize: '1.5em'}}>{letter}</span>
+                        <span className="letter" style={{'--i': i, marginLeft: '10px'}}>
+                            {acrostic[i].substring(1)}
+                        </span>
+                    </div>
+                )}
             </div>
         )
     }
+    
+    
+    
 }
 
 export default DisplayPage;

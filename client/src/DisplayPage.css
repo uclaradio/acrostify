@@ -1,0 +1,25 @@
+/* DisplayPage.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    color: #333;
+}
+
+.letter {
+    opacity: 0;
+    position: relative;
+    animation: letterEntry 1s forwards;
+    animation-delay: calc(0.2s * var(--i)); /* Adjust delay for each letter */
+}
+
+@keyframes letterEntry {
+    0% {
+        opacity: 0;
+        top: 20px;
+    }
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
