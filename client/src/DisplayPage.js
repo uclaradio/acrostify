@@ -37,11 +37,11 @@ class DisplayPage extends React.Component {
         console.log(acrostic);
     
         return (
-            <div>
+            <div style={{ maxWidth: '80vw' }}>
                 {this.props.name.split('').map((letter, i) => 
-                    <div key={i}>
-                        <span className="letter" style={{'--i': i, fontSize: '1.5em'}}>{letter}</span>
-                        <span className="letter" style={{'--i': i, marginLeft: '10px'}}>
+                    <div className="nameLine" key={i}>
+                        <span className="letter" style={{'--i': i}}>{letter}</span>
+                        <span className="artist" style={{'--i': i}}>
                             {acrostic[i].substring(1)}
                         </span>
                     </div>
@@ -49,6 +49,9 @@ class DisplayPage extends React.Component {
             </div>
         )
     }
+    
+    
+    
     
     
     
