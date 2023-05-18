@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #b2bec3; /* cool gray */
+    background-color: #b2bec3; 
     color: #333;
     display: flex;
     justify-content: center;
@@ -24,14 +24,14 @@ body {
     align-items: center;
     opacity: 0;
     position: relative;
-    font-size: 3em; /* Increase the font size */
-    color: #4834d4; /* royal blue */
+    font-size: 3em; 
+    color: #4834d4; 
     height: 80px;
     width: 80px;
-    border: 2px solid #686de0; /* lighter blue */
+    border: 2px solid #686de0; 
     border-radius: 50%;
     animation: letterEntry 1s forwards;
-    animation-delay: calc(0.3s * var(--i)); /* Adjust delay for each letter */
+    animation-delay: calc(0.3s * var(--i)); /* delay 4 each letter */
     margin-right: 10px;
 }
 
@@ -40,12 +40,12 @@ body {
     opacity: 0;
     position: relative;
     font-size: 1.5em;
-    color: #686de0; /* lighter blue */
+    color: #686de0; 
     border: 1px solid #686de0;
     border-radius: 20px;
     padding: 5px 10px;
     animation: letterEntry 1s forwards;
-    animation-delay: calc(0.3s * var(--i)); /* Adjust delay for each letter */
+    animation-delay: calc(0.3s * var(--i)); /* delay 4 each letter */
 }
 
 @keyframes letterEntry {
