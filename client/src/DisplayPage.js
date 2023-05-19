@@ -36,11 +36,7 @@ class DisplayPage extends React.Component {
 
         console.log(acrostic);
 
-        let artist = (acrostic, i) => acrostic[i].substring(1).length <= 0
-            ? <></>
-            : <span className="artist" style={{ "--i": i }}>{acrostic[i].substring(1)}</span>;
-
-        let artist2 = (acrostic, i, letter, prefix) => {
+        let artist = (acrostic, i, letter, prefix) => {
             const line = acrostic[i];
             const letterIndex = line.toLowerCase().indexOf(letter.toLowerCase());
             const part = prefix ? line.substring(0, letterIndex) : line.substring(letterIndex + 1);
@@ -51,13 +47,9 @@ class DisplayPage extends React.Component {
             <div style={{ maxWidth: "80vw" }}>
                 {this.props.name.split("").map((letter, i) =>
                     <div className="nameLine" key={i}>
-                        {artist2(acrostic, i, letter, true)}
+                        {artist(acrostic, i, letter, true)}
                         <span className="letter" style={{ "--i": i }}>{letter}</span>
-                        {artist2(acrostic, i, letter, false)}
-                        {/*{artist(acrostic, i)}*/}
-                        {/*<span className="artist" style={{ "--i": i }}>*/}
-                        {/*    {acrostic[i].substring(1)}*/}
-                        {/*</span>*/}
+                        {artist(acrostic, i, letter, false)}
                     </div>
                 )}
             </div>
