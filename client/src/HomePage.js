@@ -1,6 +1,7 @@
 import "./HomePage.css";
 import { useEffect } from "react";
 import { loginUrl } from "./spotify.js";
+import "./App.css";
 
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -12,14 +13,16 @@ function HomePage() {
     return (
 
         <div>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} >
                 <Grid item xs={6}style={{ display: "flex", flexDirection: "column", justifyContent: "center" , alignItems: "center"}}>
-                     <Typography variant="h1" component="h1" style={{ fontWeight: "bold", color: "#000000", textAlign: "center" }}>
-                          <Box fontWeight="bold">ACROSTIFY</Box>
+                     <Typography variant="h1" component="h1" style={{ fontFamily: "MENTRA", color: "#000000", textAlign: "center" }}>
+                          <Box >NAMEIFY</Box>
                      </Typography>
                      <Typography variant="h2">
-                        <Box component="div" p={1} border={3} borderColor="black" borderRadius={20} textAlign="center" width="100%" style={{ paddingTop: ".1rem", paddingBottom: "1.5rem" }} >
-                            <a href={loginUrl} style={{ fontSize: "1.5rem", color: "black"}}>Login with Spotify</a>
+                        <Box component="div" p={1} border={4} borderColor="black" borderRadius={20} textAlign="center" width="100%" style ={{paddingTop:".1rem", paddingBottom: "1.5rem"}}>
+
+                                     <a href={loginUrl} style={{fontWeight: "bold", fontSize: "1.5rem", color: "black"}}>Login with Spotify</a>
+
                          </Box>
                      </Typography>
                 </Grid>

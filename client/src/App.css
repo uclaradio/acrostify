@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'blueocean';
+    src: local('blueocean'), url(./fonts/blueocean.ttf) format('truetype');
+
+  }
+
+  @font-face {
+    font-family: 'MENTRA';
+    src: local('MENTRA'), url(./fonts/MENTRA.otf) format('opentype');
+    
+  }
