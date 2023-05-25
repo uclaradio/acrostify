@@ -6,6 +6,7 @@ import "./App.css";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import radio_icon from "./images/radio_icon.gif"
 
 function HomePage() {
     useEffect(() => window.localStorage.removeItem("token"), []);
@@ -28,7 +29,7 @@ function HomePage() {
                 </Grid>
             <Grid item xs={6}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                     <img src="https://i.imgur.com/MaZfbMg.png" alt="Music note" style={{ width: "100%" }} />
+                     <img src={radio_icon} alt="Music note" style={{ width: "100%" }} />
                 </div>
              </Grid>
              <Grid item xs={6}>
