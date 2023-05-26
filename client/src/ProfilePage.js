@@ -93,43 +93,47 @@ class ProfilePage extends React.Component {
                                 topTracks={this.state.topTracks} topGenres={this.state.topGenres}/>
 
         return (
-            <div className="name">
-                <h3>Logged in as {this.state.spotifyName}</h3>
+            <div className ="backgroundImg" >
+                <div className="name">
+                    <h3> Logged in as {this.state.spotifyName}</h3>
 
-                {/*<table>*/}
-                {/*    <thead>*/}
-                {/*        <tr>*/}
-                {/*            <th>Position</th>*/}
-                {/*            <th>Artist</th>*/}
-                {/*        </tr>*/}
-                {/*    </thead>*/}
-                {/*    <tbody>*/}
-                {/*        {this.state.topArtists.map((artist, idx) => {*/}
-                {/*            return (*/}
-                {/*                <tr key={artist}>*/}
-                {/*                    <td>{idx + 1}</td>*/}
-                {/*                    <td>{artist}</td>*/}
-                {/*                </tr>*/}
-                {/*            );*/}
-                {/*        })}*/}
-                {/*    </tbody>*/}
-                {/*</table>*/}
+                    {/*<table>*/}
+                    {/*    <thead>*/}
+                    {/*        <tr>*/}
+                    {/*            <th>Position</th>*/}
+                    {/*            <th>Artist</th>*/}
+                    {/*        </tr>*/}
+                    {/*    </thead>*/}
+                    {/*    <tbody>*/}
+                    {/*        {this.state.topArtists.map((artist, idx) => {*/}
+                    {/*            return (*/}
+                    {/*                <tr key={artist}>*/}
+                    {/*                    <td>{idx + 1}</td>*/}
+                    {/*                    <td>{artist}</td>*/}
+                    {/*                </tr>*/}
+                    {/*            );*/}
+                    {/*        })}*/}
+                    {/*    </tbody>*/}
+                    {/*</table>*/}
 
-                <form onSubmit={event => {
-                    event.preventDefault();
-                    this.setState({ submittedName: true });
-                }}>
-                    <label>
-                        Name:
-                        <input type="text" value={this.state.value}
-                               onChange={event => this.setState({ name: event.target.value })}/>
-                    </label>
-                    <input type="submit" value="Submit"/>
-                </form>
+                    <form onSubmit={event => {
+                        event.preventDefault();
+                        this.setState({ submittedName: true });
+                    }}>
+                        <div className="inputNameBorder">
+                        <label>
+                            Name:
+                            <input className="nameInput" type="text" value={this.state.value}
+                                onChange={event => this.setState({ name: event.target.value })}/>
+                        </label>
+                        <input  class="btn" type="submit" value="Submit"/>
+                        </div>
+                    </form>
 
-                <br/>
+                    <br/>
 
-                <button onClick={logout}>Logout</button>
+                    <button onClick={logout}>Logout</button>
+                </div>
             </div>
         );
     }

@@ -2,3 +2,44 @@ table {
     margin-left: auto;
     margin-right: auto;
 }
+
+h3 {
+    margin-top: 5px;
+}
+
+.btn {
+    border-radius: 10px;
+
+}
+
+.nameInput {
+    width: 40%; 
+    height: 50px;
+    margin-top: 15%;
+    font-size: 50px;
+    font-family: DigitalAlarm;
+    text-align: center;
+ }
+
+.backgroundImg {
+    background-image: url("images/CassetteDesign.jpeg");
+    height: 700px;
+    width: 1350px;
+    overflow: auto;
+}
+
+.name {
+    border-radius: 7px;
+    float: center;
+    background-color: white;
+    margin-left: 25%;
+    width: 50%;
+    height: 50%;
+    margin-top: 15%;
+    
+}
+
+@font-face {
+    font-family: DigitalAlarm;
+    src: url(fonts/digital-7.ttf);
+  }
