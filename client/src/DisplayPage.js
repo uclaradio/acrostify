@@ -2,10 +2,6 @@ import "./DisplayPage.css";
 import React from "react";
 
 class DisplayPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     acrostify() {
         const list = []
         const topArtists = [...this.props.topArtists]
