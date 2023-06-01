@@ -3,7 +3,8 @@ export const authEndpoint = "https://accounts.spotify.com/authorize";
 // After our user authenticates their Spotify account,
 // our app will redirect them back here. This should
 // be changed to reflect page navigation
-const redirectUri = "http://localhost:3000/profile/";
+// const redirectUri = "http://localhost:3000/profile/";
+const redirectUri = "https://main--guileless-elf-098c22.netlify.app/profile/";
 
 // This is the unique client ID for our Spotify app
 const clientId = "b3bb9bf3313a4287bbd367c6f7a34232";
